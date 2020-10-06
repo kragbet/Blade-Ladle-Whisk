@@ -1,72 +1,41 @@
 <template>
-  <v-container class="orange">
-    <v-row class="yellow">
-      <v-col cols="2" class="">
-      </v-col>
-      <v-col cols="8" class="red">
-        <h1>A place for everyone to share some culinary delights and motivate each other. Whether you prefer the stove-top or the oven, let us have some fun with this!</h1>
-      </v-col>
-      <v-col cols="2">
-      </v-col>
-    </v-row>
-  </v-container>
+  <span class="homebox">
+    <v-container class=" ">
+      <v-row class="">
+        <v-col cols="2" class="">
+          <p class="white--text black pa-2">A place for everyone to share their culinary delights and motivate each other. Whether you prefer the stove-top or the oven, let us have some fun with this! </p>
+        </v-col>
+        <v-col cols="8" class="">
+        </v-col>
+        <v-col cols="2">
+        </v-col>
+      </v-row>
+    </v-container>
+  </span>
 </template>
 
 <script>
   export default {
     name: 'HelloWorld',
+    props: {
+      // msg:'String',
+    },
 
     data: () => ({
-      ecosystem: [
-        {
-          text: 'vuetify-loader',
-          href: 'https://github.com/vuetifyjs/vuetify-loader',
-        },
-        {
-          text: 'github',
-          href: 'https://github.com/vuetifyjs/vuetify',
-        },
-        {
-          text: 'awesome-vuetify',
-          href: 'https://github.com/vuetifyjs/awesome-vuetify',
-        },
-      ],
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com',
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com',
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuejs.com/vuetify',
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs',
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify',
-        },
-      ],
-      whatsNext: [
-        {
-          text: 'Explore components',
-          href: 'https://vuetifyjs.com/components/api-explorer',
-        },
-        {
-          text: 'Select a layout',
-          href: 'https://vuetifyjs.com/getting-started/pre-made-layouts',
-        },
-        {
-          text: 'Frequently Asked Questions',
-          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-        },
-      ],
+      //
     }),
   }
 </script>
+<style lang="scss" scoped>
+
+.homebox {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(https://miro.medium.com/max/9856/1*rle5GFEFsldTsGtH47WZ_Q.jpeg) no-repeat center center;
+  background-size: cover;
+  transform: scale(1.0);
+}
+</style>
