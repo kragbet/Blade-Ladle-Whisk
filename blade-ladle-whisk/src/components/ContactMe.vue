@@ -45,7 +45,7 @@
             v-model="comment"
             name="input-7-1"
             filled
-            label="Label"
+            label="Message/Recipie"
             auto-grow
             value=""
           ></v-textarea>

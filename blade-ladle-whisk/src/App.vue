@@ -56,7 +56,7 @@
             :key="child.title"
           >
             <v-list-item-content>
-              <v-list-item-title v-text="child.title"></v-list-item-title>
+              <v-list-item-title><router-link :to="child.link">{{child.title}}</router-link></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
@@ -81,10 +81,10 @@
 
 <!-- Voting button -->
 
-      <v-btn flat rounded color="warning ma-1">
+      <!-- <v-btn flat rounded color="warning ma-1">
         <span>VOTE FOR A RECIPIE</span>
           <v-icon>mdi-vote</v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>   
     <v-main>
       <router-view />
@@ -117,14 +117,15 @@ export default {
 
     monthly: [
          {
-          action: 'mdi-ribbon',
+          // action: 'mdi-ribbon',
+          action: 'mdi-vote',
           active: true,
           items: [
-            { title: 'October', link: '/Winner' },
-            { title: 'November', link: '/Winner' },
-            { title: 'December', link: '/Winner' },
+            {title: 'October', link: '/Winners'},
+            {title: 'November', link: '/Winners'},
+            {title: 'December', link: '/Winners'},
           ],
-          title: 'Winners',
+          title: 'Submissions',
         },
       ],
     

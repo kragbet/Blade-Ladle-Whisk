@@ -1,5 +1,13 @@
 <template>
   <div class="Winners">
-    <h1>This is an winners page</h1>
+    <vote />
   </div>
 </template>
+<script>
+import vote from '../components/vote'
+export default {
+  components:{
+    vote
+  }
+}
+</script>
