@@ -13,8 +13,14 @@
         </v-list-item-avatar>
 
         <v-list-item-title>A La Carte</v-list-item-title>
+
+        <!-- <v-btn
+          icon
+          @click.stop="mini = !mini"
+        >
+          <v-icon>mdi-chevron-left</v-icon>
+        </v-btn> -->
       </v-list-item>
-      
   <v-divider></v-divider>
 
   <!-- main menu content -->
@@ -70,17 +76,9 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="title">The Blade, Ladle, and Whisk</v-toolbar-title>
       <v-spacer></v-spacer>
-
-<!-- socal links -->
-
-      <a :href="`${facebook}`">
       <v-btn flat rounded  small color="secondary">
-          <v-icon>mdi-facebook</v-icon>
+          <v-icon to="https://www.facebook.com/groups/475421553363485">mdi-facebook</v-icon>
       </v-btn>
-      </a>
-
-<!-- Voting button -->
-
       <v-btn flat rounded color="warning ma-1">
         <span>VOTE FOR A RECIPIE</span>
           <v-icon>mdi-vote</v-icon>
@@ -94,17 +92,19 @@
 </template>
 
 <script>
+// import HelloWorld from './components/HelloWorld';
+// import aNav from './components/aNav';
 
 export default {
   name: 'App',
 
   components: {
-    //
+    // HelloWorld,
+    // aNav,
     
   },
 
   data: () => ({
-    facebook:'https://www.facebook.com/groups/475421553363485',
     drawer: false,
     group: null, 
     items: [

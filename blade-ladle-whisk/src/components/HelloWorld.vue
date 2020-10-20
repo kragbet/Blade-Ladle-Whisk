@@ -1,9 +1,9 @@
 <template>
   <span class="homebox">
-    <v-container class=" ">
-      <v-row class="">
-        <v-col cols="2" class="">
-          <p class="white--text black pa-2">A place for everyone to share their culinary delights and motivate each other. Whether you prefer the stove-top or the oven, let us have some fun with this! </p>
+    <v-container class="fill-height">
+      <v-row   class="">
+        <v-col cols="2" class="black">
+          <p class="white--text pa-5">A place for everyone to share their culinary delights and motivate each other. Whether you prefer the stove-top or the oven, let us have some fun with this! </p>
         </v-col>
         <v-col cols="8" class="">
         </v-col>

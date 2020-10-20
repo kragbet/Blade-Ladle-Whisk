@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
+  <v-container class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <HelloWorld />
-  </div>
+  </v-container>
 </template>
 
 <script>
