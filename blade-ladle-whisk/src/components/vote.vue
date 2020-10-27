@@ -3,6 +3,7 @@
     <v-col
     v-for="item in items"
     :key="item.title"
+    cols="4"
     >
         <v-card
             :loading="loading"
@@ -19,33 +20,20 @@
 
             <v-img
             height="250"
-            :src="item.rImg"
-            ></v-img>
+            :src="`../images/food/${item.rImg}.jpg`"
+            > 
+            <!-- :src="required ('@/assets/images/' + `${rImg}`)" -->
+            </v-img>
 
             <v-card-title>{{item.title}}</v-card-title>
+            <v-card-subtitle>{{item.info}}</v-card-subtitle>
 
             <v-card-text>
             <v-row
                 align="center"
                 class="mx-0"
             >
-                <!-- <v-rating
-                :value="4.5"
-                color="amber"
-                dense
-                half-increments
-                readonly
-                size="14"
-                ></v-rating> -->
-
-                <!-- <div class="grey--text ml-4">
-                4.5 (413)
-                </div> -->
             </v-row>
-
-            <!-- <div class="my-4 subtitle-1">
-                $ • Italian, Cafe
-            </div> -->
 
             <div>{{recipe}}</div>
             </v-card-text>
@@ -60,13 +48,15 @@
                 active-class="deep-purple accent-4 white--text"
                 column
             >
-                <v-chip>1-Star</v-chip>
+                <v-chip pill>
+                  <v-avatar left>
+                    <v-img :src="`../images/users/${item.cook}.jpg`"></v-img> 
+                  </v-avatar>
+                  <span>{{item.cook}}</span>
+              </v-chip>
 
                 <v-chip>2-Star</v-chip>
 
-                <v-chip>3-Star</v-chip>
-
-                <v-chip>4-Star</v-chip>
 
             </v-chip-group>
             </v-card-text>
@@ -90,15 +80,16 @@
       loading: false,
       selection: 1,
       items: [
-        {title: 'Home', rImg: 'mdi-home', Recipie: '/'},
-        {title:'Submit A Recipie', icon:'mdi-file-document', link: '/Rules'},
-        {title: 'Contact', icon: 'mdi-phone', link: '/Contact'  },
-        {title: 'Calendar', icon: 'mdi-calendar', link: '/Calendar' },
-        {title: 'Calendar', icon: 'mdi-calendar', link: '/Calendar' },
-        {title: 'Calendar', icon: 'mdi-calendar', link: '/Calendar' },
-        {title: 'Calendar', icon: 'mdi-calendar', link: '/Calendar' },
-        {title: 'Calendar', icon: 'mdi-calendar', link: '/Calendar' },
-        {title: 'Calendar', icon: 'mdi-calendar', link: '/Calendar' },
+        {title: 'Roasted Tofu', rImg: 'Agave-roasted-tofu-butternut', cook: 'Lauren', month: 'October', winner: false, info:'Agave roasted tofu and butternut squash'},
+        {title: 'Steak Burrito', rImg: 'steak-burro', cook: 'Tatchy', month: 'October', winner: false, info:'Steak Burrito, salad with cashew cream'},
+        {title: 'Curry Noodle', rImg: 'curry-noodles', cook: 'Eddy', month: 'October', winner: false, info:'Agave roasted tofu and butternut squash'},
+        {title: 'Loco Moco', rImg: 'loco-moco.jpg', cook: 'Bob', month: 'October', winner: false, info:'Agave roasted tofu and butternut squash'},
+        {title: 'Roasted Tofu', rImg: '1.jpg', cook: 'Bob', month: 'October', winner: false, info:'Agave roasted tofu and butternut squash'},
+        {title: 'Roasted Tofu', rImg: '1.jpg', cook: 'Bob', month: 'October', winner: false, info:'Agave roasted tofu and butternut squash'},
+        {title: 'Roasted Tofu', rImg: '1.jpg', cook: 'Bob', month: 'October', winner: false, info:'Agave roasted tofu and butternut squash'},
+        {title: 'Roasted Tofu', rImg: '1.jpg', cook: 'Bob', month: 'October', winner: false, info:'Agave roasted tofu and butternut squash'},
+        
+
             
     ],
     }),
