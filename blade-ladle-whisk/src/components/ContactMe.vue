@@ -59,6 +59,7 @@
             </v-btn>
           </a>
       </v-row>
+      <v-row><p>Please attached any images of the submission to the email.</p></v-row>
     </v-container>
   </v-form>
 </template>

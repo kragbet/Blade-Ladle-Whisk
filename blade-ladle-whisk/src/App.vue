@@ -108,26 +108,28 @@ export default {
     drawer: false,
     group: null, 
     items: [
-      { title: 'Home', icon: 'mdi-home', link: '/'},
+      {title: 'Home', icon: 'mdi-home', link: '/'},
       {title:'Submit A Recipie', icon:'mdi-file-document', link: '/Rules'},
-      { title: 'Contact', icon: 'mdi-phone', link: '/Contact'  },
-      { title: 'Calendar', icon: 'mdi-calendar', link: '/Calendar' },
+      {title: 'Contact', icon: 'mdi-phone', link: '/Contact'  },
+      {title: 'Calendar', icon: 'mdi-calendar', link: '/Calendar' },
+      {title:'Submissions', icon:'mdi-ribbon', link:'/Winners'}
+
         
     ],
 
-    monthly: [
-         {
-          // action: 'mdi-ribbon',
-          action: 'mdi-vote',
-          active: true,
-          items: [
-            {title: 'October', link: '/Winners'},
-            {title: 'November', link: '/Winners'},
-            {title: 'December', link: '/Winners'},
-          ],
-          title: 'Submissions',
-        },
-      ],
+    // monthly: [
+    //      {
+    //       // action: 'mdi-ribbon',
+    //       action: 'mdi-vote',
+    //       active: true,
+    //       items: [
+    //         {title: 'October', link: '/Winners'},
+    //         {title: 'November', link: '/Winners'},
+    //         {title: 'December', link: '/Winners'},
+    //       ],
+    //       title: 'Submissions',
+    //     },
+    //   ],
     
     mini: true,
   }),

@@ -39,32 +39,7 @@
         </v-list-item>
       </v-list>
 
-  <!-- Winners Circle -->
-
-      <v-list>
-        <v-list-group
-          v-for="month in monthly"
-          :key="month.title"
-          v-model="month.active"
-          :prepend-icon="month.action"
-          no-action
-        >
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title v-text="month.title"></v-list-item-title>
-            </v-list-item-content>
-          </template>
-
-          <v-list-item
-            v-for="child in month.items"
-            :key="child.title"
-          >
-            <v-list-item-content>
-              <v-list-item-title v-text="child.title"></v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-group>
-      </v-list>
+  
   </v-navigation-drawer> 
 </template>
 <script>
@@ -77,25 +52,26 @@ export default {
 
   data: () => ({
     items: [
-      { title: 'Home', icon: 'mdi-home', link: '/'},
+      {title: 'Home', icon: 'mdi-home', link: '/'},
       {title:'Submit A Recipie', icon:'mdi-file-document', link: '/Rules'},
-      { title: 'Contact', icon: 'mdi-phone', link: '/Contact'  },
-      { title: 'Calendar', icon: 'mdi-calendar', link: '/Calendar' },
+      {title: 'Contact', icon: 'mdi-phone', link: '/Contact'},
+      {title: 'Calendar', icon: 'mdi-calendar', link: '/Calendar'},
+      {title:'Submissions', icon:'mdi-ribbon', link:'/Winner'}
         
     ],
 
-    monthly: [
-         {
-          action: 'mdi-ribbon',
-          active: true,
-          items: [
-            { title: 'October', link: '/Winner' },
-            { title: 'November', link: '/Winner' },
-            { title: 'December', link: '/Winner' },
-          ],
-          title: 'Winners',
-        },
-      ],
+    // monthly: [
+    //      {
+    //       action: 'mdi-ribbon',
+    //       active: true,
+    //       items: [
+    //         { title: 'October', link: '/Winner' },
+    //         { title: 'November', link: '/Winner' },
+    //         { title: 'December', link: '/Winner' },
+    //       ],
+    //       title: 'Winners',
+    //     },
+    //   ],
     
     mini: true,
   }),

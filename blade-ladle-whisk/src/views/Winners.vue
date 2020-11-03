@@ -1,13 +1,13 @@
 <template>
   <div class="Winners">
-    <vote />
+    <Vote />
   </div>
 </template>
 <script>
-import vote from '../components/vote'
+import Vote from '../components/Vote'
 export default {
   components:{
-    vote
+    Vote,
   }
 }
 </script>
