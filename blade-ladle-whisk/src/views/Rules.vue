@@ -30,16 +30,16 @@
     <v-divider></v-divider>
   <card class="mt-2">
     <p>Please fill out the form below and place recipie submission in the Lable text field. You are encourged to post any pictures within the Facebook group #BLWCompetition</p>
-    <contactMe />
+    <SubmitRecipie />
   </card>
 </v-container>
 </template>
 <script>
-import contactMe from '../components/ContactMe'
+import SubmitRecipie from '../components/SubmitRecipie'
 
   export default {
     components:{
-    contactMe,
+    SubmitRecipie,
     },
   }
 </script>

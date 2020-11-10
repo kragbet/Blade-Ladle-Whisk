@@ -1,18 +1,33 @@
 <template>
   <v-container>
     <v-row>
-      <v-btn class="ma-1" small flat color="primary" @click="sortBy('cook')">
-        <v-icon left small>mdi-face</v-icon>
-        <span class="caption text-lowercase">By user</span>
-      </v-btn>
-      <v-btn class="ma-1" small flat color="primary" @click="sortBy('month')">
-        <v-icon left small>mdi-calendar</v-icon>
-        <span class="caption text-lowercase" @click="sortBy('cook')">By Month</span>
-      </v-btn>
-      <v-btn class="ma-1" small flat color="primary" @click="sortBy('status')">
-        <v-icon left small>mdi-ribbon</v-icon>
-        <span class="caption text-lowercase">By Winners</span>
-      </v-btn>
+      <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn class="ma-1" small flat color="primary" @click="sortBy('cook')" v-bind="attrs" v-on="on">
+            <v-icon left small>mdi-face</v-icon>
+            <span class="caption text-lowercase">User</span>
+          </v-btn>
+        </template>
+        <span>Sort by User</span>
+      </v-tooltip>
+      <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn class="ma-1" small flat color="primary" @click="sortBy('month')" v-bind="attrs" v-on="on">
+            <v-icon left small>mdi-calendar</v-icon>
+            <span class="caption text-lowercase" @click="sortBy('cook')">Month</span>
+          </v-btn>  
+        </template>
+        <span>Sort by Month</span>
+      </v-tooltip>
+      <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn class="ma-1" small flat color="primary" @click="sortBy('status')" v-bine="attrs" v-on="on">
+            <v-icon left small>mdi-ribbon</v-icon>
+            <span class="caption text-lowercase">Winners</span>
+          </v-btn> 
+        </template>
+        <span>Sort by Winners</span>
+      </v-tooltip>
     </v-row>
     <v-row dense>
       <v-col
