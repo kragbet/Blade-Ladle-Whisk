@@ -1,5 +1,7 @@
 <template class="Rules">
 <v-container>
+  <v-row class="pb-2">
+
     <div >
       <h1 class="pa-2">Terms and Conditions</h1>
     </div>
@@ -27,11 +29,42 @@
       </ol>
     </div>
   </v-card>
-    <v-divider></v-divider>
-  <card class="mt-2">
-    <p>Please fill out the form below and place recipie submission in the Lable text field. You are encourged to post any pictures within the Facebook group #BLWCompetition</p>
-    <SubmitRecipie />
-  </card>
+  </v-row>
+  <v-row center class="pt-2">
+    <v-card class="pa-2">
+      <h3>Recipe Submission Form</h3>
+      <p>Please fill out the form below to submit a recipe for competition. You are encourged to post any pictures within the Facebook group #BLWCompetition</p>
+      <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="1000px"
+      >
+        <template v-slot:activator="{ on, attrs}">
+          <v-btn
+            color="primary"
+            dark
+            v-bind="attrs"
+            v-on="on"
+          >
+          Submit Recipe
+          </v-btn>
+        </template>
+        <v-card>
+          <SubmitRecipie class="pa-3" />
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+            color="secondary"
+            text
+            @click="dialog = false"
+            >
+              Cancel Submittion
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-card>
+  </v-row>
 </v-container>
 </template>
 <script>
@@ -41,5 +74,8 @@ import SubmitRecipie from '../components/SubmitRecipie'
     components:{
     SubmitRecipie,
     },
+    data: () => ({
+      dialog: false,
+    }),
   }
 </script>

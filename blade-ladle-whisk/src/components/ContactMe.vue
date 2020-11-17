@@ -52,12 +52,12 @@
       </v-row>
       <v-row>
           <!-- <a :href="`mailto:kragbet@gmail.com?subject=Mail%20from%20BLW&body=${comment}`"> -->
-          <!-- <a :href="`mailto:kragbet@gmail.com?subject=From%20BLW&body=${comment}`"> -->
-            <v-btn @click="submit()">
+          <a :href="`mailto:kragbet@gmail.com?subject=From%20BLW&body=${comment}`">
+            <v-btn>
               <span>Send</span>
               <v-icon>mdi-email</v-icon>
             </v-btn>
-          <!-- </a> -->
+          </a>
       </v-row>
       <v-row ><p class="pt-2">Please attached any images of the submission to the email.</p></v-row>
     </v-container>
@@ -82,14 +82,13 @@
         ],
       }),
 
-      methdos:{
+      methods:{
 
         submit() {
           if (this.$refs.contactForm.validate()) {
             console.log(this.firstname, this.comment)
           }
         },
-
       }
   }
 </script>

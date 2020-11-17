@@ -37,7 +37,7 @@
 
   <!-- Winners Circle -->
 
-      <v-list>
+      <!-- <v-list>
         <v-list-group
           v-for="month in monthly"
           :key="month.title"
@@ -60,7 +60,7 @@
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
-      </v-list>
+      </v-list> -->
   </v-navigation-drawer> 
     <v-app-bar
     app
@@ -74,7 +74,7 @@
 <!-- socal links -->
 
       <a :href="`${facebook}`">
-      <v-btn flat rounded  small color="secondary">
+      <v-btn text rounded  small color="secondary">
           <v-icon>mdi-facebook</v-icon>
       </v-btn>
       </a>
