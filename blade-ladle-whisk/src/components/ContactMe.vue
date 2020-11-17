@@ -1,5 +1,5 @@
 <template>
-  <v-form v-model="valid">
+  <v-form v-model="valid" ref="contactForm">
     <v-container>
       <v-row>
         <v-col
@@ -52,12 +52,12 @@
       </v-row>
       <v-row>
           <!-- <a :href="`mailto:kragbet@gmail.com?subject=Mail%20from%20BLW&body=${comment}`"> -->
-          <a :href="`mailto:kragbet@gmail.com?subject=From%20BLW&body=${comment}`">
-            <v-btn>
+          <!-- <a :href="`mailto:kragbet@gmail.com?subject=From%20BLW&body=${comment}`"> -->
+            <v-btn @click="submit()">
               <span>Send</span>
               <v-icon>mdi-email</v-icon>
             </v-btn>
-          </a>
+          <!-- </a> -->
       </v-row>
       <v-row ><p class="pt-2">Please attached any images of the submission to the email.</p></v-row>
     </v-container>
@@ -67,19 +67,29 @@
 <script>
   export default {
       data: () => ({
-      valid: false,
-      firstname: '',
-      lastname: '',
-      comment:'',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => v.length <= 10 || 'Name must be less than 10 characters',
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
-      ],
-    }),
+        valid: false,
+        firstname: '',
+        lastname: '',
+        comment:'',
+        nameRules: [
+          v => !!v || 'Name is required',
+          v => v.length <= 10 || 'Name must be less than 10 characters',
+        ],
+        email: '',
+        emailRules: [
+          v => !!v || 'E-mail is required',
+          v => /.+@.+/.test(v) || 'E-mail must be valid',
+        ],
+      }),
+
+      methdos:{
+
+        submit() {
+          if (this.$refs.contactForm.validate()) {
+            console.log(this.firstname, this.comment)
+          }
+        },
+
+      }
   }
 </script>
