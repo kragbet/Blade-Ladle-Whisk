@@ -97,7 +97,7 @@
       </v-row>
       <v-row>
           <!-- <a :href="`mailto:kragbet@gmail.com?subject=Mail%20from%20BLW&body=${comment}`"> -->
-            <div class="submission-image">
+            <!-- <div class="submission-image">
               <v-file-input
                 v-model="rImag"
                 :rules="imageRules"
@@ -108,7 +108,7 @@
                 ref="mealPic"
               ></v-file-input>
             </div>
-            <v-spacer></v-spacer>
+            <v-spacer></v-spacer> -->
             <div class="sendEmailbtn ml-2">
               <!-- <a :href="`mailto:kragbet@gmail.com?subject=From%20BLW&body=${comment}`"> -->
                 <v-btn @click="submit()">
@@ -167,7 +167,6 @@ import db from '../fb'
       methods:{        
 
         submit() {
-           
           if (this.$refs.submitForm.validate()) {
             const contestSub ={
               title: this.title,
@@ -177,7 +176,7 @@ import db from '../fb'
               month: this.submonth,
               email: this.email,
               ingredients: this.ingredients, 
-              image: this.rImag,              
+              // imagename: this.$refs.mealPic.src.split("/").pop().split(".")[0],              
             }
 
             db.collection("submitted-recipes").add(contestSub).then(() => {
