@@ -97,23 +97,38 @@
       </v-row>
       <v-row>
           <!-- <a :href="`mailto:kragbet@gmail.com?subject=Mail%20from%20BLW&body=${comment}`"> -->
+            <div class="submission-image">
+              <v-file-input
+                v-model="rImag"
+                :rules="imageRules"
+                accept="image/png, image/jpeg, image/bmp"
+                placeholder="add an image"
+                prepend-icon="mdi-camera"
+                label="Image"
+                ref="mealPic"
+              ></v-file-input>
+            </div>
+            <v-spacer></v-spacer>
             <div class="sendEmailbtn ml-2">
               <!-- <a :href="`mailto:kragbet@gmail.com?subject=From%20BLW&body=${comment}`"> -->
                 <v-btn @click="submit()">
                   <v-icon>mdi-email</v-icon>
-                  <span>Send</span>
+                  <span>submit</span>
                 </v-btn>
               <!-- </a> -->
             </div>
       </v-row>
-      <v-row><p>Please attached any images of the submission to the email.</p></v-row>
+      <!-- <v-row><p>Please attached any images of the submission to the email.</p></v-row> -->
     </v-container>
   </v-form>
 </template>
 
 <script>
+import db from '../fb'
+
   export default {
       data: () => ({
+        dialog: false,
         ingredients:['1 cp sugar',],
         basicIngredients:['sugar','flour', 'eggs', 'spice', 'pepper'],
         months:['Janurary', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -125,6 +140,7 @@
         info:'',
         submonth:'',
         email: '',
+        rImag:'',
         titleRules: [
           v => !!v || 'Recipe title is required',
           v => v.length <= 30 || 'Recipe title must be less than 30 characters',
@@ -143,13 +159,31 @@
           v => !!v || 'E-mail is required',
           v => /.+@.+/.test(v) || 'E-mail must be valid',
         ],
+        imageRules: [
+        value => !value || value.size < 6000000 || 'Avatar size should be less than 6 MB!',
+      ],
       }),
 
-      methods:{
+      methods:{        
 
         submit() {
+           
           if (this.$refs.submitForm.validate()) {
-            console.log(this.cook, this.recipe)
+            const contestSub ={
+              title: this.title,
+              cook: this.cook,
+              recipe: this.recipe,
+              info: this.info,
+              month: this.submonth,
+              email: this.email,
+              ingredients: this.ingredients, 
+              image: this.rImag,              
+            }
+
+            db.collection("submitted-recipes").add(contestSub).then(() => {
+              alert('Thank you for your submission to the contest. Good Luck!')
+              this.$emit('close-dialog')
+            })
           }
         },
       },

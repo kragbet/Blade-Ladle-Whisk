@@ -50,13 +50,14 @@
           </v-btn>
         </template>
         <v-card>
-          <SubmitRecipie class="pa-3" />
+          <!-- <SubmitRecipie class="pa-3" /> -->
+          <SubmitRecipie class="pa-3" v-on:close-dialog="closeDialog" />
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
             color="secondary"
             text
-            @click="dialog = false"
+            @click="closeDialog"
             >
               Cancel Submittion
             </v-btn>
@@ -77,5 +78,12 @@ import SubmitRecipie from '../components/SubmitRecipie'
     data: () => ({
       dialog: false,
     }),
+
+    methods:{
+      closeDialog () {
+        this.dialog = false;
+      }
+    }
+
   }
 </script>
