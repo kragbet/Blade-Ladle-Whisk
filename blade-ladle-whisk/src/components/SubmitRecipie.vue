@@ -88,6 +88,7 @@
           <v-textarea
             v-model="recipe"
             name="recipe"
+            :rules="recipeRules"
             filled
             label="Recipe"
             auto-grow
@@ -96,11 +97,11 @@
       </v-row>
       <v-row>
           <!-- <a :href="`mailto:kragbet@gmail.com?subject=Mail%20from%20BLW&body=${comment}`"> -->
-            <div class="sendEmail ml-2">
+            <div class="sendEmailbtn ml-2">
               <!-- <a :href="`mailto:kragbet@gmail.com?subject=From%20BLW&body=${comment}`"> -->
                 <v-btn @click="submit()">
-                  <span>Send</span>
                   <v-icon>mdi-email</v-icon>
+                  <span>Send</span>
                 </v-btn>
               <!-- </a> -->
             </div>
@@ -119,22 +120,25 @@
         search: null,  
         valid: false,
         title: '',
+        cook: '',
+        recipe:'',
+        info:'',
+        submonth:'',
+        email: '',
         titleRules: [
           v => !!v || 'Recipe title is required',
           v => v.length <= 30 || 'Recipe title must be less than 30 characters',
         ],
-        cook: '',
         cookRules: [
           v => !!v || ' Name is required',
         ],
-        recipe:'',
-        info:'',
+        recipeRules: [
+          v => !!v || ' Name is required',
+        ],
         infoRules: [
           v => !!v || 'Summary is required',
           v => v.length <= 50 || 'Summary must be less than 50 characters',
         ],
-        submonth:'',
-        email: '',
         emailRules: [
           v => !!v || 'E-mail is required',
           v => /.+@.+/.test(v) || 'E-mail must be valid',
