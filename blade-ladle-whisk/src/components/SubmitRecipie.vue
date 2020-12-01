@@ -192,6 +192,7 @@ export default {
             this.loading = false;
             this.$emit("close-dialog");
             this.$emit("submissionAdded");
+            this.$refs.submitForm.reset();
           });
       }
     },

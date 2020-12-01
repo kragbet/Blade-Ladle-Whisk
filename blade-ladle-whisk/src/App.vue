@@ -79,11 +79,11 @@
 
 <!-- socal links -->
 
+      <v-btn rounded small color="secondary">
       <a :href="`${facebook}`">
-      <v-btn text rounded  small color="secondary">
-          <v-icon>mdi-facebook</v-icon>
-      </v-btn>
+          <v-icon color="error">mdi-facebook</v-icon>
       </a>
+      </v-btn>
 
 <!-- Voting button -->
 
@@ -149,3 +149,8 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+a {
+  text-decoration: none;
+}
+</style>

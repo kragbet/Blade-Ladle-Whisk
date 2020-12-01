@@ -6,8 +6,7 @@
           <v-btn
             class="ma-1"
             small
-            text
-            color="primary"
+            color="info"
             @click="sortBy('cook')"
             v-bind="attrs"
             v-on="on"
@@ -23,8 +22,7 @@
           <v-btn
             class="ma-1"
             small
-            text
-            color="primary"
+            color="info"
             @click="sortBy('month')"
             v-bind="attrs"
             v-on="on"
@@ -42,8 +40,7 @@
           <v-btn
             class="ma-1"
             small
-            text
-            color="primary"
+            color="info"
             @click="sortBy('status')"
             v-bind="attrs"
             v-on="on"
