@@ -3,7 +3,7 @@
   <nav app>
     <v-snackbar v-model="snackSubmissionComplete" :timeout="4000" top color="success">
         <span>Thank you for your submission to the contest. Good Luck!</span>
-        <v-btn flat color="secondary" class="ml-3" @click="snackSubmissionComplete = false">Close</v-btn>
+        <v-btn text color="secondary" class="ml-3" @click="snackSubmissionComplete = false">Close</v-btn>
       </v-snackbar>
   </nav>
   <v-row class="pb-2">

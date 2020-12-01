@@ -10,10 +10,10 @@
     >
       <v-list-item class="px-2 pt-2">
         <v-list-item-avatar>
-          <v-img src="https://www.iconfinder.com/data/icons/hotel-vacation-long-shadow-flat/33/chef-512.png"></v-img>
+          <v-img alt="menu" src="https://www.iconfinder.com/data/icons/hotel-vacation-long-shadow-flat/33/chef-512.png"></v-img>
         </v-list-item-avatar>
 
-        <v-list-item-title>A La Carte</v-list-item-title>
+        <v-list-item-title><p class="pt-3">La Carte</p></v-list-item-title>
       </v-list-item>
       
   <v-divider></v-divider>

@@ -3,7 +3,15 @@
     <v-row>
       <v-tooltip top>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn class="ma-1" small flat color="primary" @click="sortBy('cook')" v-bind="attrs" v-on="on">
+          <v-btn
+            class="ma-1"
+            small
+            text
+            color="primary"
+            @click="sortBy('cook')"
+            v-bind="attrs"
+            v-on="on"
+          >
             <v-icon left small>mdi-face</v-icon>
             <span class="caption text-lowercase">User</span>
           </v-btn>
@@ -12,110 +20,133 @@
       </v-tooltip>
       <v-tooltip top>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn class="ma-1" small flat color="primary" @click="sortBy('month')" v-bind="attrs" v-on="on">
+          <v-btn
+            class="ma-1"
+            small
+            text
+            color="primary"
+            @click="sortBy('month')"
+            v-bind="attrs"
+            v-on="on"
+          >
             <v-icon left small>mdi-calendar</v-icon>
-            <span class="caption text-lowercase" @click="sortBy('cook')">Month</span>
-          </v-btn>  
+            <span class="caption text-lowercase" @click="sortBy('cook')"
+              >Month</span
+            >
+          </v-btn>
         </template>
         <span>Sort by Month</span>
       </v-tooltip>
       <v-tooltip top>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn class="ma-1" small flat color="primary" @click="sortBy('status')" v-bine="attrs" v-on="on">
+          <v-btn
+            class="ma-1"
+            small
+            text
+            color="primary"
+            @click="sortBy('status')"
+            v-bind="attrs"
+            v-on="on"
+          >
             <v-icon left small>mdi-ribbon</v-icon>
             <span class="caption text-lowercase">Winners</span>
-          </v-btn> 
+          </v-btn>
         </template>
         <span>Sort by Winners</span>
       </v-tooltip>
     </v-row>
     <v-row dense>
-      <v-col
-      v-for="item in items"
-      :key="item.title"
-      cols="4"
-      >
-          <v-card
-              :loading="loading"
-              class="mx-auto my-12"
-              max-width="374"
+      <v-col v-for="item in items" :key="item.title" cols="4">
+        <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+          <template slot="progress">
+            <v-progress-linear
+              color="deep-purple"
+              height="10"
+              indeterminate
+            ></v-progress-linear>
+          </template>
+
+          <v-img
+            v-if="item.rImg"
+            height="250"
+            :src="`../images/food/${item.rImg}.jpg`"
           >
-              <template slot="progress">
-              <v-progress-linear
-                  color="deep-purple"
-                  height="10"
-                  indeterminate
-              ></v-progress-linear>
-              </template>
+            <!-- :src="required ('@/assets/images/' + `${rImg}`)" -->
+          </v-img>
+          <v-img v-else height="250" :src="`../images/food/ComingSoon.png`">
+            <!-- :src="required ('@/assets/images/' + `${rImg}`)" -->
+          </v-img>
 
-              <v-img
-              v-if="item.rImg"
-              height="250"
-              :src="`../images/food/${item.rImg}.jpg`"
-              > 
-              <!-- :src="required ('@/assets/images/' + `${rImg}`)" -->
-              </v-img>
-              <v-img
-              v-else
-              height="250"
-              :src="`../images/food/ComingSoon.png`"
-              > 
-              <!-- :src="required ('@/assets/images/' + `${rImg}`)" -->
-              </v-img>
+          <v-card-title>{{ item.title }}</v-card-title>
+          <v-card-subtitle>{{ item.info }}</v-card-subtitle>
 
-              <v-card-title>{{item.title}}</v-card-title>
-              <v-card-subtitle>{{item.info}}</v-card-subtitle>
-
-              <v-card-text>
-              <v-row
-                  align="center"
-                  class="mx-0"
-              >
-                <div>
-                  <RecipePop :ingredients="item.ingredients" :recipe="item.recipe" />
-                  <!-- <RecipePop /> -->
-                </div>
-              </v-row>
-              </v-card-text>
-
-              <v-divider class="mx-4"></v-divider>
-
-              <v-card-title>Info</v-card-title>
-
-              <v-card-text>
+          <v-card-text>
+            <v-row align="center" class="mx-0">
               <div>
-                  <v-chip class="ma-2" pill color="primary" :ripple="false">
-                    <v-avatar left>
-                      <v-img :src="`../images/users/${item.cook}.jpg`"></v-img> 
-                    </v-avatar>
-                    <span>{{item.cook}}</span>
-                </v-chip>
+                <RecipePop
+                  :ingredients="item.ingredients"
+                  :recipe="item.recipe"
+                />
+                <!-- <RecipePop /> -->
+              </div>
+            </v-row>
+          </v-card-text>
 
-                <v-chip class="`ma-1 ${item.month}`" :ripple="false">{{item.month}}</v-chip>
+          <v-divider class="mx-4"></v-divider>
 
-                <v-chip :class="`ma-1 ${item.status}`" v-if="item.status === 'winner'" color="success"><v-icon>mdi-ribbon</v-icon></v-chip>
-                <v-chip :class="`ma-1 ${item.status}`" v-if="item.status === 'second'" color="accent"><v-icon>mdi-ribbon</v-icon></v-chip>
-                <v-chip :class="`ma-1 ${item.status}`" v-if="item.status === 'third'" color="info"><v-icon>mdi-ribbon</v-icon></v-chip>            
-                </div>
-              </v-card-text>
-          </v-card>
+          <v-card-title>Info</v-card-title>
+
+          <v-card-text>
+            <div>
+              <v-chip class="ma-2" pill color="primary" :ripple="false">
+                <v-avatar left>
+                  <v-img :src="`../images/users/${item.cook}.jpg`"></v-img>
+                </v-avatar>
+                <span>{{ item.cook }}</span>
+              </v-chip>
+
+              <v-chip class="`ma-1 ${item.month}`" :ripple="false">{{
+                item.month
+              }}</v-chip>
+
+              <v-chip
+                :class="`ma-1 ${item.status}`"
+                v-if="item.status === 'winner'"
+                color="success"
+                ><v-icon>mdi-ribbon</v-icon></v-chip
+              >
+              <v-chip
+                :class="`ma-1 ${item.status}`"
+                v-if="item.status === 'second'"
+                color="accent"
+                ><v-icon>mdi-ribbon</v-icon></v-chip
+              >
+              <v-chip
+                :class="`ma-1 ${item.status}`"
+                v-if="item.status === 'third'"
+                color="info"
+                ><v-icon>mdi-ribbon</v-icon></v-chip
+              >
+            </div>
+          </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
 </template>
 <script>
-import RecipePop from './RecipePop'
-import db from '../fb'
+import RecipePop from "./RecipePop";
+import db from "../fb";
 
-  export default {
-    components:{
-      RecipePop,
-    },
+export default {
+  components: {
+    RecipePop,
+  },
 
-    data: () => ({
-      loading: false,
-      selection: 1,
-      items: [],
+  data: () => ({
+    loading: false,
+    selection: 1,
+    items: [],
     //   items: [
     //     {
     //       title: 'Roasted Tofu',
@@ -242,39 +273,38 @@ import db from '../fb'
     //         { text: '3 Tablespoons the right stuff'},
     //       ],
     //       recipe: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-    //     },     
+    //     },
     // ],
-    }),
+  }),
 
-    methods: {
-      sortBy(prop){
-        this.items.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
-      },
+  methods: {
+    sortBy(prop) {
+      this.items.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
     },
+  },
 
-    created() {
-      db.collection('submitted-recipes').onSnapshot(res => {
-        const changes = res.docChanges();
+  created() {
+    db.collection("submitted-recipes").onSnapshot((res) => {
+      const changes = res.docChanges();
 
-        changes.forEach(change => {
-          if (change.type === 'added') {
-            this.items.push ({
-              ...change.doc.data(),
-              id: change.doc.id
-            })
-          }
-        })
-      })
-    }
-  }
+      changes.forEach((change) => {
+        if (change.type === "added") {
+          this.items.push({
+            ...change.doc.data(),
+            id: change.doc.id,
+          });
+        }
+      });
+    });
+  },
+};
 </script>
 <style lang="css">
-
 .v-chip .October {
-  background-color: #E8B573;
+  background-color: #e8b573;
 }
 
 .v-chip .September {
-  background-color: #E1423A;
+  background-color: #e1423a;
 }
 </style>
