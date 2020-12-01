@@ -29,7 +29,7 @@
                 :key="item"
             >
             <v-list-item-content>
-                <v-list-item-title>{{item.text}}</v-list-item-title>
+                <v-list-item-title>{{item}}</v-list-item-title>
             </v-list-item-content>
             </v-list-item>
         </v-list>

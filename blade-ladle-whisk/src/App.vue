@@ -6,6 +6,7 @@
     absolute
     temporary
     app
+    height="100%"
     >
       <v-list-item class="px-2 pt-2">
         <v-list-item-avatar>
@@ -71,6 +72,11 @@
       <v-toolbar-title class="title">The Blade, Ladle, and Whisk</v-toolbar-title>
       <v-spacer></v-spacer>
 
+      <!-- <v-snackbar v-model="snackSubmissionComplete" :timeout="4000" top color="success">
+        <span>Thank you for your submission to the contest. Good Luck!</span>
+        <v-btn flat color="secondary" class="ml-3" @click="snackSubmissionComplete = false">Close</v-btn>
+      </v-snackbar> -->
+
 <!-- socal links -->
 
       <a :href="`${facebook}`">
@@ -87,6 +93,7 @@
       </v-btn> -->
     </v-app-bar>   
     <v-main>
+      <!-- <router-view @submissionAdded=" snackSubmissionComplete = true" /> -->
       <router-view />
     </v-main>
   </v-app>
@@ -106,6 +113,7 @@ export default {
   data: () => ({
     facebook:'https://www.facebook.com/groups/475421553363485',
     drawer: false,
+    // snackSubmissionComplete: false,
     group: null, 
     items: [
       {title: 'Home', icon: 'mdi-home', link: '/'},

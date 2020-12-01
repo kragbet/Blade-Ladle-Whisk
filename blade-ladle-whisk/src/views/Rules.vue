@@ -1,5 +1,11 @@
 <template class="Rules">
 <v-container>
+  <nav app>
+    <v-snackbar v-model="snackSubmissionComplete" :timeout="4000" top color="success">
+        <span>Thank you for your submission to the contest. Good Luck!</span>
+        <v-btn flat color="secondary" class="ml-3" @click="snackSubmissionComplete = false">Close</v-btn>
+      </v-snackbar>
+  </nav>
   <v-row class="pb-2">
 
     <div >
@@ -51,7 +57,7 @@
         </template>
         <v-card>
           <!-- <SubmitRecipie class="pa-3" /> -->
-          <SubmitRecipie class="pa-3" v-on:close-dialog="closeDialog" />
+          <SubmitRecipie class="pa-3" v-on:close-dialog="closeDialog"  @submissionAdded=" snackSubmissionComplete = true"/>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn
@@ -76,6 +82,7 @@ import SubmitRecipie from '../components/SubmitRecipie'
     SubmitRecipie,
     },
     data: () => ({
+      snackSubmissionComplete: false,
       dialog: false,
     }),
 

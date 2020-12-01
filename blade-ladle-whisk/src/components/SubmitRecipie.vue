@@ -69,7 +69,7 @@
             v-model="info"
             :rules="infoRules"
             label="Summary"
-            :counter="50"
+            :counter="175"
             value=""
           ></v-text-field>
         </v-col>
@@ -111,7 +111,7 @@
             <v-spacer></v-spacer> -->
             <div class="sendEmailbtn ml-2">
               <!-- <a :href="`mailto:kragbet@gmail.com?subject=From%20BLW&body=${comment}`"> -->
-                <v-btn @click="submit()">
+                <v-btn @click="submit()" :loading="loading">
                   <v-icon>mdi-email</v-icon>
                   <span>submit</span>
                 </v-btn>
@@ -128,7 +128,6 @@ import db from '../fb'
 
   export default {
       data: () => ({
-        dialog: false,
         ingredients:['1 cp sugar',],
         basicIngredients:['sugar','flour', 'eggs', 'spice', 'pepper'],
         months:['Janurary', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -153,7 +152,7 @@ import db from '../fb'
         ],
         infoRules: [
           v => !!v || 'Summary is required',
-          v => v.length <= 50 || 'Summary must be less than 50 characters',
+          v => v.length <= 175 || 'Summary must be less than 175 characters',
         ],
         emailRules: [
           v => !!v || 'E-mail is required',
@@ -162,12 +161,16 @@ import db from '../fb'
         imageRules: [
         value => !value || value.size < 6000000 || 'Avatar size should be less than 6 MB!',
       ],
+
+      loading: false,
       }),
 
       methods:{        
 
         submit() {
           if (this.$refs.submitForm.validate()) {
+            this.loading = true;
+            
             const contestSub ={
               title: this.title,
               cook: this.cook,
@@ -180,8 +183,10 @@ import db from '../fb'
             }
 
             db.collection("submitted-recipes").add(contestSub).then(() => {
-              alert('Thank you for your submission to the contest. Good Luck!')
-              this.$emit('close-dialog')
+              // alert('Thank you for your submission to the contest. Good Luck!');
+              this.loading = false;
+              this.$emit('close-dialog');
+              this.$emit('submissionAdded');
             })
           }
         },

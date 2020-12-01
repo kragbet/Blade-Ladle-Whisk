@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import Vote from '../components/vote'
+import Vote from '../components/Vote'
 export default {
   components:{
     Vote,
