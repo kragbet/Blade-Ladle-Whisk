@@ -1,2 +1,2 @@
 # codeTuesday
-VuePractice for work
+Projects developed for personal growth and expanding my protfolio
